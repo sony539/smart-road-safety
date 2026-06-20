@@ -1,0 +1,17 @@
+body {
+    background: linear-gradient(135deg, #f4f7fc, #e8edf5);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.title { text-align:center; font-weight:bold; color:#0d6efd; margin-top:20px; margin-bottom:30px; }
+.card { border:none; border-radius:15px; box-shadow:0px 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
+.card:hover { transform:translateY(-5px); }
+.card-accidents { background:linear-gradient(135deg,#667eea,#764ba2) !important; }
+.card-risk { background:linear-gradient(135deg,#f093fb,#f5576c) !important; }
+.card-casualties { background:linear-gradient(135deg,#4facfe,#00f2fe) !important; }
+.card-score { background:linear-gradient(135deg,#43e97b,#38f9d7) !important; }
+.card-accidents h2,.card-accidents h5,
+.card-risk h2,.card-risk h5,
+.card-casualties h2,.card-casualties h5,
+.card-score h2,.card-score h5 { color:white !important; }
+canvas { background:white; border-radius:15px; padding:15px; margin-top:25px; box-shadow:0px 4px 12px rgba(0,0,0,0.15); }
+.footer { text-align:center; margin-top:40px; padding:20px; background:#0d6efd; color:white; border-radius:10px; margin-bottom:30px; }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Road Safety</title>
+  <style>
+    body { font-family: Arial; background: #f0f2f5; display: flex; justify-content: center; padding: 30px; }
+    .box { background: white; padding: 30px; border-radius: 12px; width: 500px; }
+    h2 { color: #c0392b; text-align: center; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input { width: 100%; padding: 8px; margin-top: 4px; border-radius: 6px; border: 1px solid #ccc; }
+    button { width: 100%; margin-top: 20px; padding: 12px; background: #c0392b; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; }
+    .result { margin-top: 20px; padding: 15px; border-radius: 8px; background: #eaf4fb; text-align: center; font-size: 18px; }
+  </style>
+</head>
+<body>
+<div class="box">
+  <h2>🚦 Smart Road Safety</h2>
+
+  <form method="POST" action="/predict">
+    <label>City (number)</label>
+    <input type="number" name="city" required>
+
+    <label>State (number)</label>
+    <input type="number" name="state" required>
+
+    <label>Latitude</label>
+    <input type="number" step="any" name="latitude" required>
+
+    <label>Longitude</label>
+    <input type="number" step="any" name="longitude" required>
+
+    <label>Hour (0-23)</label>
+    <input type="number" name="hour" min="0" max="23" required>
+
+    <label>Day of Week (number)</label>
+    <input type="number" name="day_of_week" required>
+
+    <label>Is Weekend (0 or 1)</label>
+    <input type="number" name="is_weekend" required>
+
+    <label>Road Type (number)</label>
+    <input type="number" name="road_type" required>
+
+    <label>Lanes</label>
+    <input type="number" name="lanes" required>
+
+    <label>Traffic Signal (0 or 1)</label>
+    <input type="number" name="traffic_signal" required>
+
+    <label>Weather (number)</label>
+    <input type="number" name="weather" required>
+
+    <label>Visibility (number)</label>
+    <input type="number" name="visibility" required>
+
+    <label>Temperature</label>
+    <input type="number" step="any" name="temperature" required>
+
+    <label>Traffic Density (number)</label>
+    <input type="number" name="traffic_density" required>
+
+    <label>Cause (number)</label>
+    <input type="number" name="cause" required>
+
+    <label>Vehicles Involved</label>
+    <input type="number" name="vehicles_involved" required>
+
+    <label>Casualties</label>
+    <input type="number" name="casualties" required>
+
+    <label>Is Peak Hour (0 or 1)</label>
+    <input type="number" name="is_peak_hour" required>
+
+    <label>Festival (number)</label>
+    <input type="number" name="festival" required>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if severity %}
+  <div class="result">
+    <strong>Severity:</strong> {{ severity }}<br>
+    <strong>Risk Score:</strong> {{ risk }} / 1.0
+  </div>
+  {% endif %}
+
+  <br>
+
+<div style="text-align:center; margin-top:20px;">
+    <a href="/dashboard">
+        <button type="button" style="
+            background:#28a745;
+            color:white;
+            padding:12px 25px;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;">
+            📊 View Dashboard
+        </button>
+    </a>
+</div>
+
+  {% if error %}
+  <div class="result" style="color:red;">Error: {{ error }}</div>
+  {% endif %}
+</div>
+</body>
+</html>
